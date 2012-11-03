@@ -92,7 +92,6 @@ class Ui_MainWindow(object):
     
     def Login(self):
         
-        #QMainWindow.closeEvent(QCloseEvent())
         user_name = "B"
         pass_word = "1111"
         if (user_name == self.username.text()):
@@ -104,11 +103,7 @@ class Ui_MainWindow(object):
                 uw = display.Ui_MainWindow()    #сюда подставляем нужное название формы
                 uw.setupUi(w)
                 w.show()
-                #command=lambda :window.destroy()
                 self.emit(QtCore.SIGNAL("destroyed()"))
-                #self.visible = hidden
-                #app.exec_()
-                #exit_sgn = pyqtSignal(str)
                 sys.exit(app.exec_())
                 self.windows.destroy()
         
