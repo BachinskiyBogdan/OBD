@@ -29,7 +29,8 @@
     
 '''
 
-
+import sys
+from PyQt4.QtGui import *
 from PyQt4 import QtCore, QtGui
 
 try:
@@ -1000,6 +1001,43 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+#
+#   события при нажатии на клавишу Update
+        QtCore.QObject.connect(self.Update_btn_1, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_2, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_3, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_4, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_5, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_6, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_7, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_8, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_9, QtCore.SIGNAL("clicked()"), self.Update_element)
+        QtCore.QObject.connect(self.Update_btn_10, QtCore.SIGNAL("clicked()"), self.Update_element)
+#
+#   события при нажатии на клавишу Delete      
+        QtCore.QObject.connect(self.Delete_btn_1, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_2, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_3, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_4, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_5, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_6, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_7, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_8, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_9, QtCore.SIGNAL("clicked()"), self.Delete_element)
+        QtCore.QObject.connect(self.Delete_btn_10, QtCore.SIGNAL("clicked()"), self.Delete_element)
+#
+#   Вставка нового элемента        
+        QtCore.QObject.connect(self.Insert_btn, QtCore.SIGNAL("clicked()"), self.Insert_element)
+#
+#   Предыдущая страница
+        QtCore.QObject.connect(self.Previous_btn, QtCore.SIGNAL("clicked()"), self.Previous_page)
+#
+#   Следующая страница
+        QtCore.QObject.connect(self.Next_btn, QtCore.SIGNAL("clicked()"), self.Next_page)
+#
+#   Ввод номера страницы для перехода на нее
+        QtCore.QObject.connect(self.current_page, QtCore.SIGNAL("pressed()"), self.No_of_Page)
+
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "DataBase", None, QtGui.QApplication.UnicodeUTF8))
         self.Update_btn_1.setText(QtGui.QApplication.translate("MainWindow", "Update", None, QtGui.QApplication.UnicodeUTF8))
@@ -1034,3 +1072,32 @@ class Ui_MainWindow(object):
         self.label_6.setText(QtGui.QApplication.translate("MainWindow", "OriginState", None, QtGui.QApplication.UnicodeUTF8))
         self.label_7.setText(QtGui.QApplication.translate("MainWindow", "OriginStateName", None, QtGui.QApplication.UnicodeUTF8))
 
+    def Update_element(self):
+        i = 0
+        import insert                 #импортируем нужную форму
+        from PyQt4 import QtCore
+        w = QMainWindow()
+        uw = insert.Ui_MainWindow()    #сюда подставляем нужное название формы
+        uw.setupUi(w)
+        w.show()
+        sys.exit(app.exec_())
+        # действия, при обновлении элемента
+    def Delete_element(self):
+        i = 0
+        # действия, при удалении элемента
+    def Insert_element(self):
+        i = 0
+        # действия, при вставке элемента
+    def Previous_page(self):
+        i = 0
+        # действия, для перехода на предыдущею страницу
+    def Next_page(self):
+        i = 0
+        # действия, для перехода на следующею страницу
+    def No_of_Page(self):
+        i = 0
+        # действия, для перехода на заданую страницу
+    def Run(self, w):
+        #app = QApplication(sys.argv)
+        w.show()
+        sys.exit(app.exec_())

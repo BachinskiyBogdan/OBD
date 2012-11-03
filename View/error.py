@@ -9,7 +9,7 @@
 
 '''
 
-    OK_btn - повтор ввода имени пароля пользователя (возвращение на форму аутентификации)
+    OK_btn - повтор ввода имени пароля пользователя (возвращение на форму аудентификации)
     Cancel_btn - выход из программы
     
 '''
@@ -76,6 +76,10 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
+        QtCore.QObject.connect(self.OK_btn, QtCore.SIGNAL("clicked()"), self.Retry)
+        QtCore.QObject.connect(self.Cancel_btn, QtCore.SIGNAL("clicked()"), self.Exit)
+
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Error", None, QtGui.QApplication.UnicodeUTF8))
         self.OK_btn.setText(QtGui.QApplication.translate("MainWindow", "OK", None, QtGui.QApplication.UnicodeUTF8))
@@ -85,4 +89,10 @@ class Ui_MainWindow(object):
 "\n"
 "или Cancel, чтобы выйти из программы\n"
 "", None, QtGui.QApplication.UnicodeUTF8))
+    def Retry(self)
+        i = 0
+        # повтор аудентификации
+    def Exit(self)
+        i = 0
+        # выход с программы
 

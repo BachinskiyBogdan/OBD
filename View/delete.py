@@ -58,9 +58,22 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        QtCore.QObject.connect(self.Yes_btn, QtCore.SIGNAL("clicked()"), self.OK)
+        QtCore.QObject.connect(self.No_btn, QtCore.SIGNAL("clicked()"), self.Cancel)
+
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Delete", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">Вы действительно хотите удалить этот элемент?</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.Yes_btn.setText(QtGui.QApplication.translate("MainWindow", "Yes", None, QtGui.QApplication.UnicodeUTF8))
         self.No_btn.setText(QtGui.QApplication.translate("MainWindow", "No", None, QtGui.QApplication.UnicodeUTF8))
+
+    def OK (self)
+        i = 1
+        #действия, когда подтреждено удаление
+
+    def Cancel (self)
+        i = 1
+        #действия, при отмене удаления
+
+    
 
